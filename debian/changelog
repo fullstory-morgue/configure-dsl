@@ -1,3 +1,9 @@
+kanotix-dsl (0.4.3) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 24 Aug 2005 01:04:24 +0200
+
 kanotix-dsl (0.4.2) unstable; urgency=low
 
   * add "connect now" dialog.
