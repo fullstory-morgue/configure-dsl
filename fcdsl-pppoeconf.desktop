@@ -1,0 +1,11 @@
+[Desktop Entry]
+Comment=
+Exec=kanotix-su fcdsl-pppoeconf
+Icon=kanotix-dsl
+Name=Fritz!Card DSL PPPoE Conf
+Path=
+Terminal=0
+TerminalOptions=
+Type=Application
+X-KDE-SubstituteUID=false
+X-KDE-Username=
