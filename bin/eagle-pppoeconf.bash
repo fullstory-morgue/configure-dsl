@@ -109,4 +109,8 @@ if [ ! -e /etc/debian_version ]; then
 fi
 killall pppd 2>/dev/null
 /sbin/ifconfig $INTERFACE up
+
+CONNECT=$(yesno "$TITLE" "Connect now?" 50)
+[ "$CONNECT" == "1" ] && exit 50
+
 $PPPD call "$PROVIDER"

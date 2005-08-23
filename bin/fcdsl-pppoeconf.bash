@@ -124,6 +124,10 @@ for ((sec=1;sec<=60;sec++)) do
 done
 echo
 if adslstat 1 2>/dev/null; then
+
+ CONNECT=$(yesno "$TITLE" "Connect now?" 50)
+ [ "$CONNECT" == "1" ] && exit 50
+ 
  $PPPD call "$PROVIDER"
 else
  echo No dialin possible. Try later again.

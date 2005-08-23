@@ -123,4 +123,8 @@ if [ ! -e /etc/debian_version ]; then
  ln -s ppp/resolv.conf /etc/resolv.conf
 fi
 killall pppd 2>/dev/null
+
+CONNECT=$(yesno "$TITLE" "Connect now?" 50)
+[ "$CONNECT" == "1" ] && exit 50
+
 $PPPD call "$PROVIDER"
