@@ -1,8 +1,8 @@
-kanotix-dsl (0.4.3) UNRELEASED; urgency=low
+kanotix-dsl (0.4.3) unstable; urgency=low
 
-  * NOT RELEASED YET
+  * don't disconnect before asking to connect to the new ISP.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 24 Aug 2005 01:04:24 +0200
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue,  6 Sep 2005 22:57:06 +0200
 
 kanotix-dsl (0.4.2) unstable; urgency=low
 
