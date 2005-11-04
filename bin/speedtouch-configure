@@ -42,7 +42,7 @@ function fselect {
 }
 TITLE="SpeedTouch DSL Configuration"
 msgbox "$TITLE" "To activate the device you need to specify the path to the firmware file. This is usually called \"alcaudsl.sys\" (Windows) or \"mgmt.o\" (Linux). You may find it in your Windows/System dir." 50
-FIRMWARE=$(fselect "$TITLE" "/mnt" 50)
+FIRMWARE=$(fselect "$TITLE" "/media" 50)
 [ $? != 0 ] && exit 1
 if ! [ -e "$FIRMWARE" ]; then
  msgbox "$TITLE" "Error: bad firmware file" 50

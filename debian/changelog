@@ -1,8 +1,8 @@
-kanotix-dsl (0.4.4) UNRELEASED; urgency=low
+kanotix-dsl (0.4.4) unstable; urgency=low
 
-  * NOT RELEASED YET
+  * switch from /mnt/ to /media/.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue,  6 Sep 2005 22:59:49 +0200
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Fri,  4 Nov 2005 18:43:43 +0100
 
 kanotix-dsl (0.4.3) unstable; urgency=low
 
