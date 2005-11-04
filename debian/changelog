@@ -1,3 +1,9 @@
+kanotix-dsl (0.4.5) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Fri,  4 Nov 2005 18:45:30 +0100
+
 kanotix-dsl (0.4.4) unstable; urgency=low
 
   * switch from /mnt/ to /media/.
