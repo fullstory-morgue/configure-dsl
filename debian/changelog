@@ -1,3 +1,9 @@
+kanotix-dsl (0.4.6) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu,  2 Mar 2006 02:15:53 +0100
+
 kanotix-dsl (0.4.5) unstable; urgency=low
 
   * knoppix --> kanotix transition, thanks to x-un-i.
