@@ -3,6 +3,16 @@ if [ $UID != 0 ]; then
  echo Error: become root before starting $0 >&2
  exit 100
 fi
+
+# override tool behaviour through distro-defaults
+
+FLL_DISTRO_NAME="Kanotix"
+FLL_LIVE_USER="knoppix"
+FLL_MOUNTPOINT="/KNOPPIX"
+
+[ -r /etc/default/distro ] && source /etc/default/distro
+
+
 XDIALOG_HIGH_DIALOG_COMPAT=1
 export XDIALOG_HIGH_DIALOG_COMPAT
 LANG=C
@@ -49,12 +59,12 @@ if ! [ -e "$FIRMWARE" ]; then
  exit 10
 fi
 if modem_run -m -f "$FIRMWARE"; then
- if [ -d /KNOPPIX ]; then
-  echo KNOPPIX CD found. >&2
+ if [ -d ${FLL_MOUNTPOINT} ]; then
+  echo ${FLL_DISTRO_NAME} CD found. >&2
   umount /usr/local/lib 2>/dev/null
-  SYS=/home/knoppix/system
+  SYS=/home/${FLL_LIVE_USER}/system
   mkdir -p $SYS
-  cp -a /KNOPPIX/usr/local/lib $SYS
+  cp -a ${FLL_MOUNTPOINT}/usr/local/lib $SYS
   mount --bind $SYS/lib /usr/local/lib
  fi
  mkdir -p /usr/local/lib/speedtouch

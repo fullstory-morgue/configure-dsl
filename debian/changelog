@@ -1,8 +1,10 @@
-kanotix-dsl (0.4.5) UNRELEASED; urgency=low
+kanotix-dsl (0.4.5) unstable; urgency=low
 
-  * NOT RELEASED YET
+  * knoppix --> kanotix transition, thanks to x-un-i.
+  * remove cdbs auto-update feature.
+  * bump compat level to 5.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Fri,  4 Nov 2005 18:45:30 +0100
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu,  2 Mar 2006 02:06:53 +0100
 
 kanotix-dsl (0.4.4) unstable; urgency=low
 
