@@ -2,3 +2,4 @@ bin/* usr/sbin/
 kanotix-dsl.xpm usr/share/icons/hicolor/48x48/apps/
 modem/*.desktop usr/share/applnk/Kanotix/Net/
 *.desktop usr/share/applnk/Kanotix/Net/DSL/
+modprobe.d/* etc/modprobe.d

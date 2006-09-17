@@ -1,8 +1,13 @@
-kanotix-dsl (0.4.6) UNRELEASED; urgency=low
+kanotix-dsl (0.4.6) unstable; urgency=low
 
-  * NOT RELEASED YET
+  [ Joerg Schirottke ]
+  * removed eagle config tool.
+  * removed enable on boot options.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu,  2 Mar 2006 02:15:53 +0100
+  [ Stefan Lippers-Hollmann ]
+  * really clean up, we can go back in svn any time.
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 18 Sep 2006 01:29:46 +0200
 
 kanotix-dsl (0.4.5) unstable; urgency=low
 

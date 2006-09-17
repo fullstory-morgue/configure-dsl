@@ -7,7 +7,7 @@ Standards-Version: 3.6.2
 
 Package: kanotix-dsl
 Architecture: all
-Depends: dialog, kanotix-su, kanotix-menu, eaglede-usb-tools | eagle-usb-utils, ppp
+Depends: dialog, kanotix-su, kanotix-menu, ppp, ueagle-firmware, br2684ctl
 Suggests: xdialog
 Description: DSL configuration tools
  These scripts can be used to configure various different xDSL connection types

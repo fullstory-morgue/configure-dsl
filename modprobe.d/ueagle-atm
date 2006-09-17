@@ -1,0 +1,1 @@
+install ueagle-atm /sbin/modprobe ueagle-atm --ignore-install && (/usr/bin/killall br2684ctl 2>/dev/null;/usr/sbin/br2684ctl -c 0 -b -a 1.32 2>/dev/null)

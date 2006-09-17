@@ -58,7 +58,8 @@ if [ "$PASSWORD" == "" ]; then
  msgbox "$TITLE" "Error: bad password" 50
  exit 30
 fi
-START=$(yesno "$TITLE" "Start DSL on boot?" 50)
+#START=$(yesno "$TITLE" "Start DSL on boot?" 50)
+START=1
 rm -rf "/etc/ppp/peers/$PROVIDER"
 cat <<EOF >"/etc/ppp/peers/$PROVIDER"
 pty "/usr/sbin/pppoe -I $INTERFACE -T 80 -m 1452"
