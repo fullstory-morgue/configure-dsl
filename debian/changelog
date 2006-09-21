@@ -1,3 +1,9 @@
+kanotix-dsl (0.4.8) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Fri, 22 Sep 2006 00:52:02 +0200
+
 kanotix-dsl (0.4.7) unstable; urgency=low
 
   * Using my-pppoeconf.pl from M.L. de Boer a.k.a. Locsmif.
