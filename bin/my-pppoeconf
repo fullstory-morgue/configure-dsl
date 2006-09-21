@@ -1,115 +1,380 @@
-#!/bin/bash
-if [ $UID != 0 ]; then
- echo Error: become root before starting $0 >&2
- exit 100
-fi
-XDIALOG_HIGH_DIALOG_COMPAT=1
-export XDIALOG_HIGH_DIALOG_COMPAT
-LANG=C
-export LANG
-DIALOG=dialog
-[ -n "$DISPLAY" ] && [ -x /usr/bin/Xdialog ] && DIALOG="Xdialog"
-function inputbox {
- # inputbox title text width [init]
- $DIALOG --stdout --title "$1" --inputbox "\n$2\n\n" 10 $3 "$4"
+#!/usr/bin/perl
+
+# my-pppoeconf.pl will detect and setup pppoe with a wizard 
+# and write config files in /etc/ppp/ and /etc/ppp/peers/ .
+# It also parses and edits /etc/network/interfaces/
+# Copyright (C) 2006  M.L. de Boer a.k.a. Locsmif
+
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+use threads;
+use threads::shared;
+use strict;
+use File::Copy;
+use Tie::File;
+use Proc::Killall;
+use Switch 'perl6';
+use constant { DEBUG => 0, PVDEFAULT => 'dsl-provider', IFACESFILE => '/etc/network/interfaces',
+		PPPD => '/usr/bin/pppd', LABEL1 => 'PPPoE provider', LABEL2 => 'PPPoE username',
+		LABEL3 => 'PPPoE password', TITLE => 'ADSL configuration' };
+
+#########################################################
+#		D E C L A R A T I O N S			#
+#########################################################
+
+my (%devs);
+my %dlgopts = ( width => 40, height => 8, title => TITLE );
+
+my (@fields, @thr);
+
+my ($boot, $cnow, $d, $entry1, $entry2, $entry3,
+    $fh, $i, $j, $pv, $pw, $us, $text);
+my $x = $ENV{DISPLAY} ? 1 : 0;
+# Running in a real or pseudo terminal? If pseudo, no need for print's
+# because the output will not be seen anyway
+my $sh = 0; #$ENV{TERM} ? 1 : 0;
+my $ac :shared;
+my $dev :shared;
+
+#########################################################
+#		UI::DIALOG SETUP			#
+#########################################################
+
+if ($x) {
+	eval "use UI::Dialog::Backend::XDialog"; die if $@;
+	$d = new UI::Dialog::Backend::XDialog or die;
 }
-function msgbox {
- # msgbox title text width
- $DIALOG --title "$1" --msgbox "\n$2\n" $((${#2}/($3-4)+7)) $3
+else { 
+	eval "use UI::Dialog::Backend::CDialog"; die if $@;
+	$d = new UI::Dialog::Backend::CDialog( insecure => 1 ) or die;
 }
-function yesno {
- # yesno title text width
- $DIALOG --title "$1" --yesno "\n$2\n" $((${#2}/($3-4)+7)) $3
- echo $?
+$d or die "Can't create new dialog object";
+
+#########################################################
+#		F U N C T I O N S 			#
+#########################################################
+
+sub dbg {
+	return unless DEBUG;
+	print "$_[0]";
 }
-TITLE="ADSL Configuration"
-INTERFACE=""
-list=$(ifconfig -a|grep Ethernet|awk '{print $1}')
-for iface in $list; do
- ifconfig $iface up
- AC=$(pppoe -A -I $iface 2>/dev/null|grep Access-Concentrator)
- if [ $? == 0 ]; then
-  AC=$(echo $AC|awk '{print $2}')
-  INTERFACE=$iface
-  break
-fi
-done
-if [ -n "$INTERFACE" ]; then
- msgbox "$TITLE" "Access-Concentrator $AC found at $INTERFACE" 50
-else
- msgbox "$TITLE" "Error: no Access-Concentrator found" 50
- exit 5
-fi 
-PROVIDER="$(inputbox "$TITLE" "PPPoE provider" 50 dsl-provider)"
-[ $? != 0 ] && exit 1
-if [ "$PROVIDER" == "" ]; then
- msgbox "$TITLE" "Error: bad provider name" 50
- exit 10
-fi
-USERNAME="$(inputbox "$TITLE" "PPPoE username" 50)"
-[ $? != 0 ] && exit 2
-if [ "$USERNAME" == "" ]; then
- msgbox "$TITLE" "Error: bad username" 50
- exit 20
-fi
-PASSWORD="$(inputbox "$TITLE" "PPPoE password" 50)"
-[ $? != 0 ] && exit 3
-if [ "$PASSWORD" == "" ]; then
- msgbox "$TITLE" "Error: bad password" 50
- exit 30
-fi
-#START=$(yesno "$TITLE" "Start DSL on boot?" 50)
-START=1
-rm -rf "/etc/ppp/peers/$PROVIDER"
-cat <<EOF >"/etc/ppp/peers/$PROVIDER"
-pty "/usr/sbin/pppoe -I $INTERFACE -T 80 -m 1452"
+
+sub detect_if {
+	# Not using interfaces.pl yet because need information if interface is up or not.
+	# Could this be a feature request? ;)
+	for (`ifconfig -a`) { 
+		chomp;
+		undef ($i) if (/^$/); 
+		if (/^(\S+).*ethernet/i) { 
+			$i = $1;
+			$devs{$i} = 0;
+		} 
+		$devs{$i} = 1 if ($i && /\WUP\W/);
+	} 
+	dbg "key:$_ value:$devs{$_}\n" for (keys %devs);
+}
+
+sub detect_ac {
+	my $i = shift;
+	$devs{$i} or system("ifconfig $i up");
+	for (`pppoe -A -I $i 2>/dev/null`) { 
+		if (/access-concentrator:\s+(\S+)/i) {
+			$ac = $1;
+			$dev = $i;
+		}
+	}
+	$devs{$i} or system("ifconfig $i down");
+	return;
+}
+
+sub run_detect_ac {
+	#print "Searching for Access-Concentrator...\n";
+	for $i (keys %devs) {
+		$thr[$j++] = threads->create(\&detect_ac, $i);
+	}
+
+	# Apparently the sleep(1) is needed to keep the cdialog backend at ease..
+	# Else it'll hang at 1% for the duration of one thread sometimes.. :(
+	# Some research seems to point in the direction of UI::Dialog::Backend::CDialog
+	sleep(1);
+	$d->gauge_start( %dlgopts, text => "Searching for Access-Concentrator...", percentage => 0 );
+	for (0..150) {
+		# Take note: cdialog requires integers, not floats! 
+		# Therefore we use int() ...
+		$d->gauge_set(int($_*100/150));
+		select (undef, undef, undef, 0.1)
+	}
+	$d->gauge_stop;
+
+	for (@thr) { $_->join(); }
+}
+
+sub get_prev_provider {
+	# These vars only local!
+	my $pv;
+	if (open($fh, "<", IFACESFILE)) {
+		while (<$fh>) {
+			if (/^\s*iface\s+(\S+)\s+inet\s+ppp\s*$/) {
+				$pv = $1;
+				last;
+			}
+		}
+		close($fh);
+	}
+	return($pv ? $pv : PVDEFAULT);
+}
+
+sub get_prev_userpass {
+	# These vars only local!
+	my ($us, $pw, $auth);
+	my $pv = shift;
+	if (open($fh, "<", "/etc/ppp/peers/$pv")) {
+		while (<$fh>) {
+			if (/^\s*user\s+"([^"]+)".*$/) {
+				$us = $1;
+				last;
+			}
+		}
+		close($fh);
+	}
+	else { return(undef, undef) }
+
+OUTER:	for $auth (qw/pap chap/) {
+		if (open($fh, "<", "/etc/ppp/${auth}-secrets")) {
+			while (<$fh>) {
+				if (/^\s*"$us"\s+\*\s+"([^"]+)".*$/) {
+					$pw = $1;
+					close($fh);
+					last OUTER;
+				}
+			}
+			close($fh);
+		}
+	}
+	return($us, $pw);
+}
+
+sub create_pv {
+	open($fh, ">", "/etc/ppp/peers/$pv");
+	print $fh <<_EOF_
+# Minimalistic default options file for DSL/PPPoE connections
+
 noipdefault
 defaultroute
+replacedefaultroute
 hide-password
-lcp-echo-interval 60
-lcp-echo-failure 3
+#lcp-echo-interval 30
+#lcp-echo-failure 4
+noauth
 persist
-#demand
-connect /bin/true
-noauth 
-mtu 1492
-user "$USERNAME"
+#mtu 1492
+#persist
+#maxfail 0
+#holdoff 20
+plugin rp-pppoe.so
+nic-$dev
+user "$us"
 usepeerdns
-EOF
-chmod 640 "/etc/ppp/peers/$PROVIDER"
-chown root.dip "/etc/ppp/peers/$PROVIDER"
-for AUTH in chap pap; do
- [ -w /etc/ppp/$AUTH-secrets ] && perl -pi -e "s|^[\s]*\"$USERNAME\".*[\n]?$||" /etc/ppp/$AUTH-secrets
- cat <<EOF >>/etc/ppp/$AUTH-secrets
-"$USERNAME" * "$PASSWORD"
-EOF
- chmod 600 /etc/ppp/$AUTH-secrets
- chown root.root /etc/ppp/$AUTH-secrets
-done
-PPPD=/usr/sbin/pppd
-if [ $START == 0 ]; then
- cat <<EOF >/etc/ppp/ppp_on_boot
-#!/bin/sh
-PPPD=$PPPD
-INTERFACE=$INTERFACE
-/sbin/ifconfig \$INTERFACE up
-\$PPPD call "$PROVIDER"
-EOF
- chmod 700 /etc/ppp/ppp_on_boot
- chown root.root /etc/ppp/ppp_on_boot
-else
- rm -f /etc/ppp/ppp_on_boot
-fi
-if [ ! -e /etc/debian_version ]; then
- [ -f /etc/resolv.conf ] && cp /etc/resolv.conf /etc/resolv.conf.1st
- rm -f /etc/resolv.conf
- ln -s ppp/resolv.conf /etc/resolv.conf
-fi
+_EOF_
+;
+	close($fh);
+	chown((getpwnam("root"))[2], (getgrnam("dip"))[2], "/etc/ppp/peers/$pv");
+	chmod(0640, "/etc/ppp/peers/$pv");
+	return(1);
+}
 
-CONNECT=$(yesno "$TITLE" "Connect now?" 50)
-[ "$CONNECT" == "1" ] && exit 50
+sub create_secrets {
+	my ($auth, $file);
+	my @secrets;
 
-killall pppd 2>/dev/null
+	for $auth (qw/pap chap/) {
+		$file = "/etc/ppp/${auth}-secrets";
+		tie(@secrets, "Tie::File", $file) or die "Couldn't open ${file}!\n";
 
-$PPPD call "$PROVIDER"
+		# The below method must be used instead of foreach because:
+		# (1) an index is required to use splice (2) splice is required to delete a line from a tied file
+		# (3) array elements can be 'undefined', so 'exists' must be used to test (4) splice changes the 
+		#     value of $#array, so that can't be used in the sense of 'for 0..$#array' because $#array is 
+		#     evaluated only once. (not unless you want to iterate over non-existing elements by accident, 
+		#     for example)
+		$i = 0;
+		while (exists($secrets[$i])) {
+			# Remove the line if it contains the username given by the user earlier.
+			splice(@secrets, $i, 1) if ($secrets[$i] =~ /^\s*"$us".*$/);
+			$i++;
+		}
+		# Kano's line: [ -w /etc/ppp/${auth}-secrets ] && perl -pi -e "s|^[\s]*\"$us\".*[\n]?$||" /etc/ppp/${auth}-secrets
+		# No newline needed with Tie::File if autochomp is set to on! (See perldoc Tie::File)
+		push(@secrets, "\"$us\" * \"$pw\"");
+		untie(@secrets);
+		chown((getpwnam("root"))[2], (getgrnam("root"))[2], $file);
+		chmod(0600, $file);
+	}
+}
 
+sub gentoo_fix {
+	if (-f "/etc/resolv.conf") { 
+ 		copy("/etc/resolv.conf", "/etc/resolv.conf.1st");
+		unlink("/etc/resolv.conf");
+	}
+	symlink("ppp/resolv.conf", "/etc/resolv.conf");
+}
+
+sub update_interfaces {
+	my (@arr, @ifaces, @pvs);
+	my $pvregex;
+	my ($i, $j, $k) = (0, 0, 0);
+	my $file = IFACESFILE;
+	my $comment = "# line maintained by pppoeconf";
+	
+	tie(@ifaces, "Tie::File", $file) or die "Couldn't open ${file}!\n";
+	# Get providers
+	for (@ifaces) {
+		push(@pvs, $1) if (/^\s*iface\s+(\S+)\s+inet\s+ppp\s*$/);
+	}
+	$pvregex = "(" . join("|", @pvs) . ")" if @pvs;
+	dbg "\$pvregex='$pvregex'\n";
+			
+IFAC:	while (exists($ifaces[$i])) {
+		dbg "\$ifaces[$i]='$ifaces[$i]'\n";
+		if ($ifaces[$i] =~ /^\s*$/) {
+			dbg "Skipping line..\n";
+			$i++;
+			next;
+		}
+		if ($ifaces[$i] =~ /^\s*auto.*\W${pvregex}\s*$/) { 
+			dbg "/^\s*auto.*\W${pvregex}\s*$/ matched!\n";
+			@arr = split(/\s/, $ifaces[$i]); 
+			while (exists($arr[$j])) { 
+				dbg "(arr) \$_='$j'\n";
+				if ($arr[$j] =~ /$pvregex/) {
+					dbg "(arr) splice '$j', 1\n";
+					splice(@arr, $j, 1);
+					# (*NOT* redo, see comment below why)
+					next;
+				}
+				$j++;
+			}
+			if ("@arr" eq "auto") {
+				dbg "(arr, auto) splice '$i', 1 from \@ifaces\n";
+				splice(@ifaces, $i, 1);
+				# redo will *always* do another run even if the condition 
+				# of the while loop doesn't apply. Therefore we use 'next'.
+				next IFAC;
+			} 
+			else { 
+				dbg "\$ifaces[$i] = '@arr'\n";
+				$ifaces[$i] = "@arr";
+			}
+		}
+		for (qr/^\s*iface\s+${pvregex}\s+inet\s+ppp\s*$/, 
+		     qr/^\s*provider\s+${pvregex}\s*$/, 
+		     qr|^\s*pre-up\s+/sbin/ifconfig\s+${dev}\s+up\W.*$|, 
+		     qr/^.*${comment}\s*$/) { 
+			dbg "Testing regex '$_' on '$ifaces[$i]'\n";
+			if ($ifaces[$i] =~ /$_/) {
+				dbg "Match! splicing \@ifaces, $i, 1\n";
+				splice(@ifaces, $i, 1); 
+				next IFAC; 
+			} 
+		}
+		$i++
+	}
+	if ($boot) {
+		# Add an empty line if the current last line isn't.
+		push(@ifaces, undef) if ($ifaces[-1] =~ /^\s*\S.*$/);
+		push(@ifaces, "auto $pv", "iface $pv inet ppp", 
+		     "pre-up /sbin/ifconfig $dev up $comment", "provider $pv");
+	}
+	$i = 0; $j = 0;
+	while (exists($ifaces[$i])) {
+		dbg "\$ifaces[$i]='$ifaces[$i]' \$i='$i' \$j='$j' \$k='$k'\n";
+		if ($ifaces[$i] =~ /^\s*$/) { 
+			$j = $i unless $k;
+			$k++;
+		} else {
+			if ($k >=2) {
+				dbg "splice(\@ifaces, $j, " . $k-1 . ");";
+				splice(@ifaces, $j, $k-1);
+				$i -= $k-1;
+				$k = 0;
+				next;
+			}
+			$k = 0;
+		}
+		$i++
+	}	
+	splice(@ifaces, $j, $k) if $k;
+	untie(@ifaces);
+}
+
+#########################################################
+#			M A I N				#
+#########################################################
+
+if ($>) {
+	$x or print "Root is required. -- ";
+	exec("kanotix-su", $0, @ARGV);
+	#$sh and die "Failed to run kanotix-su.\n";
+	$d->msgbox( %dlgopts, text => "Failed to run kanotix-su." );
+	exit(50);
+}
+
+detect_if;
+#run_detect_ac;
+run_detect_ac unless DEBUG;
+
+if ($ac or DEBUG) {
+	$d->msgbox( %dlgopts, text => "Access concentrator '$ac' found at interface '$dev'." );
+} else {
+	#$sh and die "No Access-Concentrator found.\n";
+	$d->msgbox( %dlgopts, text => "No Access-Concentrator found." );
+	exit(40);
+}
+
+$entry1 = get_prev_provider;
+$text = LABEL1;
+while (1) { 
+	$pv = $d->inputbox( %dlgopts, text => $text, entry => $entry1 ); 
+	exit 10 if ($pv eq "0");
+	redo unless $pv;
+	unless (index($pv, " ") == -1) {
+		$text = LABEL1 . " (Please do not use spaces!)";
+		redo;
+	}
+	last;
+}
+
+($entry2, $entry3) = get_prev_userpass($pv);
+do { $us = $d->inputbox( %dlgopts, text => LABEL2, entry => $entry2 ); exit 20 if ($us eq "0") } while (! $us);
+do { $pw = $d->password( %dlgopts, text => LABEL3, entry => $entry3 ); exit 30 if ($pw eq "0") } while (! $pw);
+$boot = $d->yesno( %dlgopts, text => 'Start DSL on boot?' );
+
+create_pv;
+create_secrets;
+
+unlink("/etc/ppp/ppp_on_boot");
+
+gentoo_fix unless (-e "/etc/debian_version");
+
+update_interfaces;
+
+if ($d->yesno( %dlgopts, text =>  "Connect now?" )) {
+	# Connecting now...
+	killall("KILL", "pppd");
+	system(PPPD, "call", $pv);
+}
+
+exit(0);
