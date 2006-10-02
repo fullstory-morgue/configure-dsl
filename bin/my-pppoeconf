@@ -27,8 +27,9 @@ use Tie::File;
 use Proc::Killall;
 use Switch 'perl6';
 use constant { DEBUG => 0, PVDEFAULT => 'dsl-provider', IFACESFILE => '/etc/network/interfaces',
-		PPPD => '/usr/bin/pppd', LABEL1 => 'PPPoE provider', LABEL2 => 'PPPoE username',
-		LABEL3 => 'PPPoE password', TITLE => 'ADSL configuration' };
+		POFF => '/usr/bin/poff', PON => '/usr/bin/pon',	PPPD => '/usr/bin/pppd', 
+		LABEL1 => 'PPPoE provider', LABEL2 => 'PPPoE username', LABEL3 => 'PPPoE password', 
+		TITLE => 'ADSL configuration' };
 
 #########################################################
 #		D E C L A R A T I O N S			#
@@ -320,6 +321,43 @@ IFAC:	while (exists($ifaces[$i])) {
 	untie(@ifaces);
 }
 
+sub connect_now {
+	my ($t, $p, $found, $ret);
+	# This object should be available from Proc::Killall
+	system("ifconfig", $dev, "up");
+	$t = new Proc::ProcessTable;
+	for $p (@{$t->table}) { 
+		if ($p->exec =~ /^.*\/pppd$/) {
+			$found++;
+			last;
+		}
+	}
+	if ($found) {
+		$ret = 1;
+		if (-x POFF ) { 
+			$ret = system(POFF, "-a") >> 8;
+		}
+		if ($ret) {
+			unless (killall("KILL", "pppd")) {
+				$d->msgbox( %dlgopts, text => "Failed to stop pppd!" );
+				exit(60);
+			}
+		}
+	}
+
+	$ret = 1;
+	if (-x PON) {
+		$ret = system(PON, $pv) >> 8;
+	}
+	if ($ret) {
+		if (system(PPPD, "call", $pv) >> 8) {
+			$d->msgbox( %dlgopts, text => "Failed to start pppd!" );
+			exit(70);
+		}
+	}
+
+}
+
 #########################################################
 #			M A I N				#
 #########################################################
@@ -373,8 +411,7 @@ update_interfaces;
 
 if ($d->yesno( %dlgopts, text =>  "Connect now?" )) {
 	# Connecting now...
-	killall("KILL", "pppd");
-	system(PPPD, "call", $pv);
+	connect_now;
 }
 
 exit(0);

@@ -1,8 +1,8 @@
-kanotix-dsl (0.4.8) UNRELEASED; urgency=low
+kanotix-dsl (0.4.8) unstable; urgency=low
 
-  * NOT RELEASED YET
+  * my-pppoeconf updated. 
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Fri, 22 Sep 2006 00:52:02 +0200
+ -- Joerg Schirottke <master@kanotix.com>  Mon,  2 Oct 2006 00:12:37 +0200
 
 kanotix-dsl (0.4.7) unstable; urgency=low
 
