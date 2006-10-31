@@ -1,10 +1,9 @@
-kanotix-dsl (0.4.9) UNRELEASED; urgency=low
+kanotix-dsl (0.4.9) unstable; urgency=low
 
-  * NOT RELEASED YET
   * switch to utf-8.
   * fix lintian errors.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed,  1 Nov 2006 00:04:15 +0100
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed,  1 Nov 2006 00:04:51 +0100
 
 kanotix-dsl (0.4.8) unstable; urgency=low
 
