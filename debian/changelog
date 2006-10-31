@@ -1,3 +1,9 @@
+kanotix-dsl (0.4.10) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed,  1 Nov 2006 00:05:58 +0100
+
 kanotix-dsl (0.4.9) unstable; urgency=low
 
   * switch to utf-8.
