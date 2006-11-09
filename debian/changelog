@@ -1,3 +1,9 @@
+kanotix-dsl (0.4.11) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu,  9 Nov 2006 20:46:20 +0100
+
 kanotix-dsl (0.4.10) unstable; urgency=low
 
   * fix bashisms.
