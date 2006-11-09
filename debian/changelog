@@ -1,8 +1,10 @@
-kanotix-dsl (0.4.10) UNRELEASED; urgency=low
+kanotix-dsl (0.4.10) unstable; urgency=low
 
-  * NOT RELEASED YET
+  * fix bashisms.
+  * re- indent.
+  * actually use kanotix-su.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed,  1 Nov 2006 00:05:58 +0100
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu,  9 Nov 2006 20:44:02 +0100
 
 kanotix-dsl (0.4.9) unstable; urgency=low
 

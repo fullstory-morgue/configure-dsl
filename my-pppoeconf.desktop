@@ -1,6 +1,6 @@
 [Desktop Entry]
 Comment=
-Exec=kanotix-su my-pppoeconf
+Exec=my-pppoeconf
 Icon=kanotix-dsl
 Name=My PPPoE Conf
 Path=
