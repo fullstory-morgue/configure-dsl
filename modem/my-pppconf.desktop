@@ -1,7 +1,7 @@
 [Desktop Entry]
 Comment=
-Exec=kanotix-su my-pppconf
-Icon=kanotix-dsl
+Exec=su-me my-pppconf
+Icon=dsl
 Name=My PPP Conf
 Path=
 Terminal=0

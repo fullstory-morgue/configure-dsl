@@ -1,7 +1,7 @@
 [Desktop Entry]
 Comment=
 Exec=my-pppoeconf
-Icon=kanotix-dsl
+Icon=dsl
 Name=My PPPoE Conf
 Path=
 Terminal=0

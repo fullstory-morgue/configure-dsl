@@ -1,6 +1,6 @@
 #!/bin/bash
 
-[ "$UID" -ne 0 ] && exec kanotix-su "$0" "$@"
+[ "$UID" -ne 0 ] && exec su-me "$0" "$@"
 
 XDIALOG_HIGH_DIALOG_COMPAT=1
 export XDIALOG_HIGH_DIALOG_COMPAT

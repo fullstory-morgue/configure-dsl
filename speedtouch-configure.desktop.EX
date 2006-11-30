@@ -1,7 +1,7 @@
 [Desktop Entry]
 Comment=
-Exec=kanotix-su speedtouch-configure
-Icon=kanotix-dsl
+Exec=su-me speedtouch-configure
+Icon=dsl
 Name=Speedtouch Configuration
 Path=
 Terminal=0

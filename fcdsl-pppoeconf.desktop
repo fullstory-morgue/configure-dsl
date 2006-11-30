@@ -1,7 +1,7 @@
 [Desktop Entry]
 Comment=
 Exec=fcdsl-pppoeconf
-Icon=kanotix-dsl
+Icon=dsl
 Name=Fritz!Card DSL PPPoE Conf
 Path=
 Terminal=0
