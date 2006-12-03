@@ -1,7 +1,6 @@
 configure-dsl (0.4.11) unstable; urgency=low
 
   [ Joaquim Boura ]
-  * NOT RELEASED YET
   * call /usr/sbin/pppoe -A -I nas0 for ueagle, this allows at least manual
     PPPoE connections, on_boot gets hit by race condistions for now.
   * Initial sidux version
