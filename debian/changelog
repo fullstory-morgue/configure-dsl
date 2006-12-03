@@ -1,14 +1,17 @@
-configure-dsl (0.4.11) UNRELEASED; urgency=low
+configure-dsl (0.4.11) unstable; urgency=low
 
+  [ Joaquim Boura ]
   * NOT RELEASED YET
   * call /usr/sbin/pppoe -A -I nas0 for ueagle, this allows at least manual
     PPPoE connections, on_boot gets hit by race condistions for now.
-
-
   * Initial sidux version
   * icon now named dsl.xpm
 
- -- Joaquim Boura <x-un-i@sidux.com>  Thu, 30 Nov 2006 23:15:35 +0100
+  [ Stefan Lippers-Hollmann ]
+  * conflict with kanotix-dsl.
+  * remove obsolete desktop files.
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sun,  3 Dec 2006 01:29:49 +0100
 
 kanotix-dsl (0.4.10) unstable; urgency=low
 
