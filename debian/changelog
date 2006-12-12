@@ -1,8 +1,13 @@
 configure-dsl (0.4.12) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sun,  3 Dec 2006 01:33:19 +0100
+  [ Kel Modderman ]
+  * Do not depend on ueagle-firmware, it is uninstallable.
+  * Drop versioned dependency on cdbs.
+
+ -- Kel Modderman <kel@otaku42.de>  Wed, 13 Dec 2006 00:33:46 +1000
 
 configure-dsl (0.4.11) unstable; urgency=low
 
