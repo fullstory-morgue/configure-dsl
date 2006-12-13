@@ -1,6 +1,5 @@
 configure-dsl (0.4.12) unstable; urgency=low
 
-  [ Kel Modderman ]
   * Do not depend on ueagle-firmware, it is uninstallable.
   * Drop versioned dependency on cdbs.
 
