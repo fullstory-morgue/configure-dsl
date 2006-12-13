@@ -1,7 +1,4 @@
-configure-dsl (0.4.12) UNRELEASED; urgency=low
-
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
+configure-dsl (0.4.12) unstable; urgency=low
 
   [ Kel Modderman ]
   * Do not depend on ueagle-firmware, it is uninstallable.
