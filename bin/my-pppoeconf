@@ -96,7 +96,7 @@ sub detect_ac {
 			$dev = $i;
 		}
 	}
-	$devs{$i} or system("ifconfig $i down");
+	#$devs{$i} or system("ifconfig $i down");
 	return;
 }
 
@@ -106,7 +106,7 @@ sub run_detect_ac {
 		$thr[$j++] = threads->create(\&detect_ac, $i);
 	}
 
-	# Apparently the sleep(1) is needed to keep the cdialog backend at ease..
+	# Apparently the sleep(1) is needed to keep the cdialog backend at ease.
 	# Else it'll hang at 1% for the duration of one thread sometimes.. :(
 	# Some research seems to point in the direction of UI::Dialog::Backend::CDialog
 	sleep(1);
@@ -415,3 +415,4 @@ if ($d->yesno( %dlgopts, text =>  "Connect now?" )) {
 }
 
 exit(0);
+
