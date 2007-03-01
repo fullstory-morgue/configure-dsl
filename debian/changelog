@@ -1,3 +1,9 @@
+configure-dsl (0.4.14) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu,  1 Mar 2007 12:28:48 +0100
+
 configure-dsl (0.4.13) unstable; urgency=low
 
   * kanotix-dsl was never part of sidux or debian, don't conflict with it.
