@@ -1,8 +1,12 @@
 configure-dsl (0.4.14) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu,  1 Mar 2007 12:28:48 +0100
+  [ Joaquim Boura ]
+  * moving to xdg-menus
+
+ -- Joaquim Boura <x-un-i@sidux.com>  Wed, 28 Mar 2007 21:35:56 +0200
 
 configure-dsl (0.4.13) unstable; urgency=low
 

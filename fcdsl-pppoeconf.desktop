@@ -1,11 +1,8 @@
 [Desktop Entry]
-Comment=
+Encoding=UTF-8
+Type=Application
+
 Exec=fcdsl-pppoeconf
 Icon=dsl
 Name=Fritz!Card DSL PPPoE Conf
-Path=
-Terminal=0
-TerminalOptions=
-Type=Application
-X-KDE-SubstituteUID=false
-X-KDE-Username=
+Categories=sidux;DSL

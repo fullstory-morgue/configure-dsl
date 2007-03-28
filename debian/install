@@ -1,5 +1,4 @@
 bin/* usr/sbin/
 dsl.xpm usr/share/icons/hicolor/48x48/apps/
-modem/*.desktop usr/share/applnk/sidux/Net/
-*.desktop usr/share/applnk/sidux/Net/DSL/
+*.desktop usr/share/applications
 modprobe.d/* etc/modprobe.d

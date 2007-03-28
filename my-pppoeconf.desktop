@@ -1,11 +1,10 @@
 [Desktop Entry]
-Comment=
-Exec=my-pppoeconf
-Icon=dsl
-Name=My PPPoE Conf
-Path=
-Terminal=0
-TerminalOptions=
+Encoding=UTF-8
 Type=Application
-X-KDE-SubstituteUID=false
-X-KDE-Username=
+Exec=su-me my-pppoeconf
+Icon=dsl
+
+Name=My PPP Conf
+
+Categories=sidux;Net
+
