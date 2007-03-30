@@ -1,9 +1,5 @@
-configure-dsl (0.4.14) UNRELEASED; urgency=low
+configure-dsl (0.4.14) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Joaquim Boura ]
   * moving to xdg-menus
   * using sidux-xdg in depends
 
