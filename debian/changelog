@@ -1,3 +1,9 @@
+configure-dsl (0.4.16) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat, 31 Mar 2007 01:29:47 +0200
+
 configure-dsl (0.4.15) unstable; urgency=low
 
   * fix *.desktop location.
