@@ -7,7 +7,7 @@ Standards-Version: 3.7.2
 
 Package: configure-dsl
 Architecture: all
-Depends: dialog, su-me, sidux-menu, ppp, br2684ctl, libproc-process-perl, libui-dialog-perl
+Depends: dialog, su-me, sidux-xdg, ppp, br2684ctl, libproc-process-perl, libui-dialog-perl
 Suggests: xdialog
 Description: DSL configuration tools
  These scripts can be used to configure various different xDSL connection types
