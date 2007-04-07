@@ -3,6 +3,6 @@ Encoding=UTF-8
 Type=Application
 
 Exec=fcdsl-pppoeconf
-Icon=dsl
+Icon=sidux-fcdsl
 Name=Fritz!Card DSL PPPoE Conf
 Categories=sidux;DSL

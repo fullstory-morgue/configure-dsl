@@ -1,8 +1,12 @@
 configure-dsl (0.4.16) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat, 31 Mar 2007 01:29:47 +0200
+  [ Joaquim Boura ]
+  * set new icon
+
+ -- Joaquim Boura <x-un-i@sidux.com>  Sat, 07 Apr 2007 14:55:45 +0200
 
 configure-dsl (0.4.15) unstable; urgency=low
 

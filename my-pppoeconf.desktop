@@ -2,7 +2,8 @@
 Encoding=UTF-8
 Type=Application
 Exec=su-me my-pppoeconf
-Icon=dsl
+
+Icon=sidux-ppoe
 
 Name=My PPP Conf
 
