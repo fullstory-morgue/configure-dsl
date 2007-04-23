@@ -1,3 +1,9 @@
+configure-dsl (0.4.18) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 23 Apr 2007 19:13:33 +0200
+
 configure-dsl (0.4.17) unstable; urgency=low
 
   * we need libproc-processtable-perl instead of libproc-process-perl now.
