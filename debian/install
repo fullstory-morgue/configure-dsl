@@ -1,4 +1,4 @@
 bin/*		usr/sbin/
-dsl.xpm		usr/share/icons/hicolor/48x48/apps/
 *.desktop	usr/share/applications/sidux/
 modprobe.d/*	etc/modprobe.d/
+icons		usr/share/
