@@ -1,8 +1,9 @@
-configure-dsl (0.4.19) UNRELEASED; urgency=low
+configure-dsl (0.4.19) unstable; urgency=low
 
-  * NOT RELEASED YET
+  * use pppoe-discovery instead of pppoe to probe for access concentrators,
+    thanks to thmwarp/ AquarisDT.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 30 Apr 2007 01:01:14 +0200
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 14 May 2007 15:25:27 +0200
 
 configure-dsl (0.4.18) unstable; urgency=low
 

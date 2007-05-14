@@ -90,13 +90,13 @@ sub detect_if {
 sub detect_ac {
 	my $i = shift;
 	$devs{$i} or system("ifconfig $i up");
-	for (`pppoe -A -I $i 2>/dev/null`) { 
+	for (`pppoe-discovery -I $i 2>/dev/null`) { 
 		if (/access-concentrator:\s+(\S+)/i) {
 			$ac = $1;
 			$dev = $i;
 		}
 	}
-	#$devs{$i} or system("ifconfig $i down");
+	$devs{$i} or system("ifconfig $i down");
 	return;
 }
 
