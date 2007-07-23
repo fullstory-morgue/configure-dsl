@@ -1,8 +1,8 @@
-configure-dsl (0.4.20) UNRELEASED; urgency=low
+configure-dsl (0.4.20) unstable; urgency=low
 
-  * NOT RELEASED YET
+  * fix XDG icon for my-pppoeconf, thanks to thmwarp for noticing.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 14 May 2007 15:27:04 +0200
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 23 Jul 2007 13:47:54 +0200
 
 configure-dsl (0.4.19) unstable; urgency=low
 

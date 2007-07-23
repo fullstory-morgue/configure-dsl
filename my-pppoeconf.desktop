@@ -5,7 +5,7 @@ Exec=su-me my-pppoeconf
 
 Icon=sidux-ppoe
 
-Name=My PPP Conf
+Name=My PPPoE Conf
 
-Categories=sidux;Net
+Categories=sidux;DSL
 
