@@ -1,10 +1,4 @@
-configure-dsl (0.4.22) UNRELEASED; urgency=low
-
-  * NOT RELEASED YET
-
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 02 Aug 2007 14:25:27 +0200
-
-configure-dsl (0.4.21) unstable; urgency=low
+configure-dsl (0.5.0) unstable; urgency=low
 
   [ Horst Tritremmel ]
   * add gettext to (build-) dependencies
@@ -20,7 +14,7 @@ configure-dsl (0.4.21) unstable; urgency=low
     anyways.
   * fix icon name for my-pppoeconf.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 02 Aug 2007 14:19:36 +0200
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 02 Aug 2007 14:26:22 +0200
 
 configure-dsl (0.4.20) unstable; urgency=low
 
