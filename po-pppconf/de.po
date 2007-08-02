@@ -1,0 +1,73 @@
+# translation of de.po to Deutsch
+# German translations for PACKAGE package.
+# Copyright (C) 2007 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# hjt <hjt@sidux.com>, 2007.
+# Horst Tritremmel <hjt@sidux.com>, 2007.
+msgid ""
+msgstr ""
+"Project-Id-Version: de\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-08-02 13:19+0200\n"
+"PO-Revision-Date: 2007-08-02 13:24+0200\n"
+"Last-Translator: Horst Tritremmel <hjt@sidux.com>\n"
+"Language-Team: Deutsch\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#: my-pppconf:16
+msgid "Error: You must be root to run this script!"
+msgstr ""
+
+#: my-pppconf:52
+msgid "PPP Configuration for Modem"
+msgstr "PPP Konfiguration für Modem"
+
+#: my-pppconf:53
+msgid "Provider"
+msgstr "Anbieter"
+
+#: my-pppconf:55
+msgid "Error: bad provider name"
+msgstr "Fehler: Anbietername falsch"
+
+#: my-pppconf:59
+msgid "Number"
+msgstr "Nummer"
+
+#: my-pppconf:61
+msgid "Error: bad number"
+msgstr "Fehler: falsche Nummer"
+
+#: my-pppconf:65
+msgid "Username"
+msgstr "Benutzername"
+
+#: my-pppconf:67
+msgid "Error: bad username"
+msgstr "Fehler: falscher Benutzername"
+
+#: my-pppconf:71
+msgid "Password"
+msgstr "Passwort"
+
+#: my-pppconf:73
+msgid "Error: bad password"
+msgstr "Fehler: falsches Passwort"
+
+#: my-pppconf:77
+msgid "Device"
+msgstr "Schnittstelle"
+
+#: my-pppconf:79
+msgid "Error: bad device"
+msgstr "falsche Schnittstelle"
+
+#: my-pppconf:148
+msgid "Connect now?"
+msgstr "Verbinden?"
+

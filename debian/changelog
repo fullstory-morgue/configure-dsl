@@ -1,8 +1,17 @@
 configure-dsl (0.4.21) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 23 Jul 2007 13:49:23 +0200
+  [ Horst Tritremmel ]
+  * add gettext to (build-) dependencies
+  * add ssft to dependencies
+  * remove xdialog Suggests
+  * add gettext support in my-pppconf
+  * and german language file for my-pppconf
+  * Xdialog to ssft replaced in my-pppconf
+
+ -- Horst Tritremmel <hjt@sidux.com>  Thu, 02 Aug 2007 13:29:05 +0200
 
 configure-dsl (0.4.20) unstable; urgency=low
 

@@ -1,75 +1,82 @@
 #!/bin/bash
 
-[ "$UID" -ne 0 ] && exec su-me "$0" "$@"
+# we need gettext (is loaded in ssft.sh or cloned...)
+if [ -f /usr/bin/gettext.sh ]; then
+	. /usr/bin/gettext.sh || exit 1
+else
+	exit 1
+fi
+#---------------------------------------------------------------------
+# we need root rights
+#---------------------------------------------------------------------
+SU_ME=$(type -p su-me)  || SU_ME="/usr/bin/su-me"
+if [ "$UID" -ne 0 ]; then
+	[ -x "$SU_ME" ] && exec "$SU_ME" "$0" "$@"
 
-XDIALOG_HIGH_DIALOG_COMPAT=1
-export XDIALOG_HIGH_DIALOG_COMPAT
-LANG=C
-export LANG
+	printf "$(gettext "Error: You must be root to run this script!")\n"
+	exit 1
+fi
 
-DIALOG=dialog
-[ -n "$DISPLAY" ] && [ -x /usr/bin/Xdialog ] && DIALOG="Xdialog"
+TEXTDOMAIN="my-pppconf"
+export TEXTDOMAIN
+TEXTDOMAINDIR=/usr/share/locale
+export TEXTDOMAINDIR
+
+
+SSFTSH="$(which ssft.sh)"			|| SSFTSH="/usr/bin/ssft.sh"
+# initialize ssft
+. "$SSFTSH"
+[ -n "$SSFT_FRONTEND" ] ||  SSFT_FRONTEND="$(ssft_choose_frontend)"
+
 
 function inputbox {
 	# inputbox title text width [init]
-	$DIALOG --stdout --title "$1" --inputbox "\n$2\n\n" 10 $3 "$4"
-}
-
-function simplemenu {
-	# menu text width [ tag item ] ...
-	# only single word tags and items
-	title="$1"
-	text="$2"
-	width="$3"
-	shift 3
-	$DIALOG --stdout --title "$title" --menu "$text" $((8+($#-1)/2)) $width $((($#-1)/2+1)) $*
+	SSFT_DEFAULT="$3"
+	ssft_read_string "$1" "$2"
+	unset SSFT_DEFAULT
+	[ -n "$SSFT_RESULT" ] && printf "$SSFT_RESULT\n"
 }
 
 function msgbox {
 	# msgbox title text width
-	$DIALOG --title "$1" --msgbox "\n$2\n" $((${#2}/($3-4)+7)) $3
+	ssft_display_message "$1" "$2"
 }
 
 function yesno {
 	# yesno title text width
-	$DIALOG --title "$1" --yesno "\n$2\n" $((${#2}/($3-4)+7)) $3
-	echo "$?"
+	# yesno title text width
+	ssft_yesno "$1" "$2" && printf "0\n" || printf "1\n"
 }
 
-TITLE="PPP Configuration for Modem"
-PROVIDER="$(inputbox "$TITLE" "Provider" 55 provider)"
-[ "$?" != 0 ] && exit 1
 
+TITLE="$(gettext "PPP Configuration for Modem")"
+PROVIDER="$(inputbox "$TITLE" "$(gettext "Provider")" provider)"
 if [ "$PROVIDER" = "" ]; then
-	msgbox "$TITLE" "Error: bad provider name" 55
+	msgbox "$TITLE" "$(gettext "Error: bad provider name")"
 	exit 10
 fi
 
-NUMBER="$(inputbox "$TITLE" "Number" 55)"
-[ "$?" != 0 ] && exit 2
+NUMBER="$(inputbox "$TITLE" "$(gettext "Number")")"
 if [ "$NUMBER" = "" ]; then
-	msgbox "$TITLE" "Error: bad number" 55
+	msgbox "$TITLE" "$(gettext "Error: bad number")"
 	exit 20
 fi
 
-USERNAME="$(inputbox "$TITLE" "Username" 55)"
-[ "$?" != 0 ] && exit 3
+USERNAME="$(inputbox "$TITLE" "$(gettext "Username")")"
 if [ "$USERNAME" = "" ]; then
-	msgbox "$TITLE" "Error: bad username" 55
+	msgbox "$TITLE" "$(gettext "Error: bad username")"
 	exit 30
 fi
 
-PASSWORD="$(inputbox "$TITLE" "Password" 55)"
-[ "$?" != 0 ] && exit 4
+PASSWORD="$(inputbox "$TITLE" "$(gettext "Password")")"
 if [ "$PASSWORD" = "" ]; then
-	msgbox "$TITLE" "Error: bad password" 55
+	msgbox "$TITLE" "$(gettext "Error: bad password")"
 	exit 40
 fi
 
-DEVICE="$(inputbox "$TITLE" "Device" 55 "/dev/ttyS0")"
-[ "$?" != 0 ] && exit 5
+DEVICE="$(inputbox "$TITLE" "$(gettext "Device")" "/dev/ttyS0")"
 if [ "$DEVICE" = "" ]; then
-	msgbox "$TITLE" "Error: bad device" 55
+	msgbox "$TITLE" "$(gettext "Error: bad device")"
 	exit 50
 fi
 
@@ -138,7 +145,7 @@ if [ ! -e /etc/debian_version ]; then
 	ln -s ppp/resolv.conf /etc/resolv.conf
 fi
 
-CONNECT=$(yesno "$TITLE" "Connect now?" 50)
+CONNECT=$(yesno "$TITLE" "$(gettext "Connect now?")")
 [ "$CONNECT" = "1" ] && exit 50
 
 killall pppd 2>/dev/null

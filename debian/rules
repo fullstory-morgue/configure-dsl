@@ -1,3 +1,7 @@
 #!/usr/bin/make -f
 
 include /usr/share/cdbs/1/rules/debhelper.mk
+
+build/configure-dsl::
+	# Gettext Internationalisation (i18n)
+	DESTDIR=$(CURDIR)/debian/configure-dsl $(CURDIR)/po-pppconf/make_po.sh my-pppconf.mo
