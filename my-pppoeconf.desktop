@@ -3,7 +3,7 @@ Encoding=UTF-8
 Type=Application
 Exec=su-me my-pppoeconf
 
-Icon=sidux-ppoe
+Icon=sidux-pppoe
 
 Name=My PPPoE Conf
 

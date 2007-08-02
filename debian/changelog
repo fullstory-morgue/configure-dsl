@@ -1,7 +1,4 @@
-configure-dsl (0.4.21) UNRELEASED; urgency=low
-
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
+configure-dsl (0.4.21) unstable; urgency=low
 
   [ Horst Tritremmel ]
   * add gettext to (build-) dependencies
@@ -11,7 +8,13 @@ configure-dsl (0.4.21) UNRELEASED; urgency=low
   * and german language file for my-pppconf
   * Xdialog to ssft replaced in my-pppconf
 
- -- Horst Tritremmel <hjt@sidux.com>  Thu, 02 Aug 2007 13:29:05 +0200
+  [ Stefan Lippers-Hollmann ]
+  * recommend zenity.
+  * disable AVM fcdsl configuration options, they don't work without drivers
+    anyways.
+  * fix icon name for my-pppoeconf.
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 02 Aug 2007 14:19:36 +0200
 
 configure-dsl (0.4.20) unstable; urgency=low
 
