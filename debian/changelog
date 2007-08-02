@@ -1,3 +1,9 @@
+configure-dsl (0.5.2) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 02 Aug 2007 22:54:15 +0200
+
 configure-dsl (0.5.1) unstable; urgency=low
 
   * pt language file
