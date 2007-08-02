@@ -1,0 +1,72 @@
+# Portuguese translations for PACKAGE package.
+# Copyright (C) 2007 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+#  <x-un-i@sidux.com>, 2007.
+# Joaquim Boura <x-un-i@sidux.com>, 2007.
+msgid ""
+msgstr ""
+"Project-Id-Version: de\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-08-02 13:19+0200\n"
+"PO-Revision-Date: 2007-08-02 13:24+0200\n"
+"Last-Translator: Joaquim Boura <x-un-i@sidux.com>\n"
+"Language-Team: Portuguese\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#: my-pppconf:16
+msgid "Error: You must be root to run this script!"
+msgstr "Erro: só o super utilizador (root) pode usar este programa"
+
+#: my-pppconf:52
+msgid "PPP Configuration for Modem"
+msgstr "Configuração PPP para o modem"
+
+#: my-pppconf:53
+msgid "Provider"
+msgstr "Operadora"
+
+#: my-pppconf:55
+msgid "Error: bad provider name"
+msgstr "Erro: operadora desconhecida"
+
+#: my-pppconf:59
+msgid "Number"
+msgstr "Número"
+
+#: my-pppconf:61
+msgid "Error: bad number"
+msgstr "Erro: o número entrado não é correcto"
+
+#: my-pppconf:65
+msgid "Username"
+msgstr "Utente"
+
+#: my-pppconf:67
+msgid "Error: bad username"
+msgstr "Erro:  nome do utilizador desconhecido ou errado"
+
+#: my-pppconf:71
+msgid "Password"
+msgstr "Senha"
+
+#: my-pppconf:73
+msgid "Error: bad password"
+msgstr "Erro: senha errada"
+
+#: my-pppconf:77
+msgid "Device"
+msgstr "Interface"
+
+#: my-pppconf:79
+msgid "Error: bad device"
+msgstr "interface errada"
+
+#: my-pppconf:148
+msgid "Connect now?"
+msgstr "Ligar?"
+
