@@ -54,8 +54,8 @@ my $dev :shared;
 #########################################################
 
 if ($x) {
-	eval "use UI::Dialog::Backend::XDialog"; die if $@;
-	$d = new UI::Dialog::Backend::XDialog or die;
+	eval "use UI::Dialog::Backend::Zenity"; die if $@;
+	$d = new UI::Dialog::Backend::Zenity or die;
 }
 else { 
 	eval "use UI::Dialog::Backend::CDialog"; die if $@;
@@ -110,7 +110,7 @@ sub run_detect_ac {
 	# Else it'll hang at 1% for the duration of one thread sometimes.. :(
 	# Some research seems to point in the direction of UI::Dialog::Backend::CDialog
 	sleep(1);
-	$d->gauge_start( %dlgopts, text => "Searching for Access-Concentrator...", percentage => 0 );
+	$d->gauge_start( %dlgopts, text => "Searching for Access-Concentrator...", percentage => 0, 'auto-close' => 1);
 	for (0..150) {
 		# Take note: cdialog requires integers, not floats! 
 		# Therefore we use int() ...
