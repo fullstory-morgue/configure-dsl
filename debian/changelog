@@ -1,8 +1,8 @@
-configure-dsl (0.5.4) UNRELEASED; urgency=low
+configure-dsl (0.5.4) unstable; urgency=low
 
-  * NOT RELEASED YET
+  * fix copy'n'paste errors.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 03 Dec 2007 12:34:08 +0100
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 03 Dec 2007 12:42:01 +0100
 
 configure-dsl (0.5.3) unstable; urgency=low
 

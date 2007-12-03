@@ -7,9 +7,9 @@ build/configure-dsl::
 	DESTDIR=$(CURDIR)/debian/configure-dsl $(CURDIR)/po-pppconf/make_po.sh my-pppconf.mo
 
 install/configure-dsl::
-	mkdir -p debian/configure-cups/usr/share/pixmaps
+	mkdir -p debian/configure-dsl/usr/share/pixmaps
 	convert icons/hicolor/32x32/apps/sidux-pppoe.png \
-		debian/configure-cups/usr/share/pixmaps/sidux-pppoe.xpm
+		debian/configure-dsl/usr/share/pixmaps/sidux-pppoe.xpm
 	convert icons/hicolor/16x16/apps/sidux-pppoe.png \
-		debian/configure-cups/usr/share/pixmaps/sidux-pppoe-16.xpm
+		debian/configure-dsl/usr/share/pixmaps/sidux-pppoe-16.xpm
 

@@ -2,7 +2,7 @@
 	needs="X11" \
 	section="Applications/System/Administration" \
 	hints="sidux,Config" \
-	title="Configure printer(s)" \
+	title="My PPPoE Conf" \
 	icon32x32="/usr/share/pixmaps/sidux-pppoe.xpm" \
 	icon16x16="/usr/share/pixmaps/sidux-pppoe-16.xpm" \
 	command="/usr/sbin/my-pppoeconf"
