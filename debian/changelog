@@ -1,8 +1,9 @@
-configure-dsl (0.5.3) UNRELEASED; urgency=low
+configure-dsl (0.5.3) unstable; urgency=low
 
-  * NOT RELEASED YET
+  * update to Standards-Version 3.7.3, no changes necessary.
+  * add entry for the debian menu system.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 29 Oct 2007 15:22:39 +0100
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 03 Dec 2007 12:29:40 +0100
 
 configure-dsl (0.5.2) unstable; urgency=low
 

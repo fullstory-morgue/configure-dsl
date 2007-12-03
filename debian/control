@@ -2,8 +2,8 @@ Source: configure-dsl
 Section: misc
 Priority: optional
 Maintainer: Stefan Lippers-Hollmann <s.l-h@gmx.de>
-Build-Depends: cdbs, debhelper (>= 5), gettext
-Standards-Version: 3.7.2
+Build-Depends: cdbs, debhelper (>= 5), gettext, imagemagick
+Standards-Version: 3.7.3
 Vcs-Svn: svn://svn.berlios.de/fullstory/configure-dsl/trunk
 Vcs-Browser: http://svn.berlios.de/wsvn/fullstory/configure-dsl/trunk/
 
