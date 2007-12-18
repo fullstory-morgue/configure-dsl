@@ -6,6 +6,9 @@ Exec=su-me my-pppoeconf
 Icon=sidux-pppoe
 
 Name=My PPPoE Conf
+Name[de]=Konfiguration PPPoE
+Name[pt]=Configuração de PPPoE
+Name[pt_BR]=Configuração de PPPoE
+Name[ru]=Конфигурация PPP через Ethernet
 
 Categories=sidux;DSL
-

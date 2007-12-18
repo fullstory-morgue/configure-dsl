@@ -3,6 +3,7 @@ Comment=
 Exec=su-me my-pppconf
 Icon=dsl
 Name=My PPP Conf
+Name[ru]=Конфигурация PPP
 Path=
 Terminal=0
 TerminalOptions=

@@ -5,4 +5,5 @@ Type=Application
 Exec=fcdsl-pppoeconf
 Icon=sidux-fcdsl
 Name=Fritz!Card DSL PPPoE Conf
+Name[ru]=Fritz!карта, конфигурация PPP через Ethernet
 Categories=sidux;DSL
