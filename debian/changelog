@@ -1,9 +1,5 @@
-configure-dsl (0.5.6) UNRELEASED; urgency=low
+configure-dsl (0.5.6) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Joaquim Boura ]
   * Translation thanks to RoEn
 
  -- Joaquim Boura <x-un-i@sidux.com>  Tue, 18 Dec 2007 13:18:49 +0100
