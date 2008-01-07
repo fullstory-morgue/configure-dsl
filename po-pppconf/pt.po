@@ -19,8 +19,8 @@ msgstr ""
 "X-Generator: KBabel 1.11.4\n"
 
 #: my-pppconf:16
-msgid "Error: You must be root to run this script!"
-msgstr "Erro: só o super utilizador (root) pode usar este programa"
+msgid "ERROR: $0 needs root capabilities, please start it as root\n"
+msgstr "Erro: $0 só o super utilizador (root) pode usar este programa.\n"
 
 #: my-pppconf:52
 msgid "PPP Configuration for Modem"

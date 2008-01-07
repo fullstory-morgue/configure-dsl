@@ -20,7 +20,7 @@ msgstr ""
 "X-Generator: KBabel 1.11.4\n"
 
 #: my-pppconf:16
-msgid "Error: You must be root to run this script!"
+msgid "ERROR: $0 needs root capabilities, please start it as root\n"
 msgstr ""
 
 #: my-pppconf:52

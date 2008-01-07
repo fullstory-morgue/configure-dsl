@@ -9,11 +9,9 @@ fi
 #---------------------------------------------------------------------
 # we need root rights
 #---------------------------------------------------------------------
-SU_ME=$(type -p su-me)  || SU_ME="/usr/bin/su-me"
-if [ "$UID" -ne 0 ]; then
-	[ -x "$SU_ME" ] && exec "$SU_ME" "$0" "$@"
-
-	printf "$(gettext "Error: You must be root to run this script!")\n"
+if [ "$(id -u)" -ne 0 ]; then
+	[ -x "$(which su-to-root)" ] && exec su-to-root -X -c "$0" "$@"
+	printf "$(gettext "ERROR: $0 needs root capabilities, please start it as root\n")\n" >&2
 	exit 1
 fi
 
