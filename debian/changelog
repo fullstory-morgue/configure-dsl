@@ -1,4 +1,4 @@
-configure-dsl (0.5.7) unstable; urgency=low
+configure-dsl (0.6.0) unstable; urgency=low
 
   [ Joaquim Boura ]
   * switch from custom su-me to generic su-to-root
