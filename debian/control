@@ -9,8 +9,8 @@ Vcs-Browser: http://svn.berlios.de/wsvn/fullstory/configure-dsl/trunk/
 
 Package: configure-dsl
 Architecture: all
-Depends: dialog, ssft, ppp, br2684ctl, libproc-processtable-perl, libui-dialog-perl, gettext, menu
-Recommends: zenity
+Depends: dialog, ssft, ppp, libproc-processtable-perl, libui-dialog-perl, gettext
+Recommends: br2684ctl, menu, zenity
 Description: DSL configuration tools
  These scripts can be used to configure various different xDSL connection types
  and modems for sidux.
