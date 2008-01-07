@@ -1,8 +1,12 @@
 configure-dsl (0.6.1) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 07 Jan 2008 22:19:04 +0100
+  [ Joaquim Boura ]
+  * fix depends
+
+ -- Joaquim Boura <x-un-i@sidux.com>  Mon, 07 Jan 2008 22:25:21 +0100
 
 configure-dsl (0.6.0) unstable; urgency=low
 

@@ -9,7 +9,7 @@ Vcs-Browser: http://svn.berlios.de/wsvn/fullstory/configure-dsl/trunk/
 
 Package: configure-dsl
 Architecture: all
-Depends: dialog, ssft, su-me, sidux-xdg, ppp, br2684ctl, libproc-processtable-perl, libui-dialog-perl, gettext
+Depends: dialog, ssft, ppp, br2684ctl, libproc-processtable-perl, libui-dialog-perl, gettext, menu
 Recommends: zenity
 Description: DSL configuration tools
  These scripts can be used to configure various different xDSL connection types
