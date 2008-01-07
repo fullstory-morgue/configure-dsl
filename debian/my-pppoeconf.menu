@@ -5,4 +5,4 @@
 	title="My PPPoE Conf" \
 	icon32x32="/usr/share/pixmaps/sidux-pppoe.xpm" \
 	icon16x16="/usr/share/pixmaps/sidux-pppoe-16.xpm" \
-	command="/usr/sbin/my-pppoeconf"
+	command="su-to-root -c /usr/sbin/my-pppoeconf"
