@@ -1,8 +1,7 @@
-configure-dsl (0.6.2) UNRELEASED; urgency=low
+configure-dsl (0.6.2) unstable; urgency=low
 
   [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-  * fix further su-me abuse, bin/my-pppoeconf still missing.
+  * fix further su-me abuse.
 
   [ Kel Modderman ]
   * Replace su-me with su-to-root in bin/my-pppoeconf. Use FindBin module to
