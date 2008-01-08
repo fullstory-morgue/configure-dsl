@@ -23,6 +23,7 @@ use threads;
 use threads::shared;
 use strict;
 use File::Copy;
+use FindBin;
 use Tie::File;
 use Proc::Killall;
 use Switch 'perl6';
@@ -364,7 +365,7 @@ sub connect_now {
 
 if ($>) {
 	$x or print "Root is required. -- ";
-	exec("su-me", $0, @ARGV);
+	exec("su-to-root", "-X", "-c", "$FindBin::Bin/$FindBin::Script @ARGV");
 	#$sh and die "Failed to run su-me.\n";
 	$d->msgbox( %dlgopts, text => "Failed to run su-me." );
 	exit(50);
