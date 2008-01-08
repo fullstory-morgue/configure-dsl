@@ -2,8 +2,8 @@
 Encoding=UTF-8
 Type=Application
 
-Exec=fcdsl-pppoeconf
+Exec=su-to-root -X -c /usr/sbin/fcdsl-pppoeconf
 Icon=sidux-fcdsl
 Name=Fritz!Card DSL PPPoE Conf
 Name[ru]=Fritz!карта, конфигурация PPP через Ethernet
-Categories=sidux;DSL
+Categories=Network;

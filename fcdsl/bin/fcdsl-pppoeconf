@@ -1,6 +1,10 @@
 #!/bin/bash
 
-[ "$UID" -ne 0 ] && exec su-me "$0" "$@"
+if [ "$(id -u)" -ne 0 ]; then
+	[ -x "$(which su-to-root)" ] && exec su-to-root -X -c "$0" "$@"
+	printf "$(gettext "ERROR: $0 needs root capabilities, please start it as root\n")\n" >&2
+	exit 1
+fi
 
 XDIALOG_HIGH_DIALOG_COMPAT=1
 export XDIALOG_HIGH_DIALOG_COMPAT
