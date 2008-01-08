@@ -1,6 +1,6 @@
 [Desktop Entry]
 Comment=
-Exec=su-me my-pppconf
+Exec=su-to-root -X -c /usr/sbin/my-pppconf
 Icon=dsl
 Name=My PPP Conf
 Name[ru]=Конфигурация PPP
@@ -8,5 +8,4 @@ Path=
 Terminal=0
 TerminalOptions=
 Type=Application
-X-KDE-SubstituteUID=false
-X-KDE-Username=
+Categories=Network;
