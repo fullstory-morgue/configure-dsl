@@ -366,8 +366,8 @@ sub connect_now {
 if ($>) {
 	$x or print "Root is required. -- ";
 	exec("su-to-root", "-X", "-c", "$FindBin::Bin/$FindBin::Script @ARGV");
-	#$sh and die "Failed to run su-me.\n";
-	$d->msgbox( %dlgopts, text => "Failed to run su-me." );
+	#$sh and die "Failed to run su-to-root.\n";
+	$d->msgbox( %dlgopts, text => "Failed to run su-to-root." );
 	exit(50);
 }
 

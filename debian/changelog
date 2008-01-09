@@ -1,8 +1,8 @@
-configure-dsl (0.6.3) UNRELEASED; urgency=low
+configure-dsl (0.6.3) unstable; urgency=low
 
-  * NOT RELEASED YET
+  * cosmetic change to su-to-root.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 09 Jan 2008 00:00:49 +0100
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 09 Jan 2008 01:14:57 +0100
 
 configure-dsl (0.6.2) unstable; urgency=low
 
