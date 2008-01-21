@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-# my-pppoeconf.pl will detect and setup pppoe with a wizard 
+# configure-pppoeconf.pl will detect and setup pppoe with a wizard 
 # and write config files in /etc/ppp/ and /etc/ppp/peers/ .
 # It also parses and edits /etc/network/interfaces/
 # Copyright (C) 2006  M.L. de Boer a.k.a. Locsmif

@@ -1,7 +1,7 @@
 #!/bin/sh
 
 PO_NAME=$1
-cd po-pppconf
+cd po
 
 for i in *.po; do
 	PO_LANG=${i/.po/}

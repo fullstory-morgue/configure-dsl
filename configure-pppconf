@@ -15,7 +15,7 @@ if [ "$(id -u)" -ne 0 ]; then
 	exit 1
 fi
 
-TEXTDOMAIN="my-pppconf"
+TEXTDOMAIN="configure-pppconf"
 export TEXTDOMAIN
 TEXTDOMAINDIR=/usr/share/locale
 export TEXTDOMAINDIR

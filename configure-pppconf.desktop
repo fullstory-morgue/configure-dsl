@@ -1,6 +1,6 @@
 [Desktop Entry]
 Comment=
-Exec=su-to-root -X -c /usr/sbin/my-pppconf
+Exec=su-to-root -X -c /usr/sbin/configure-pppconf
 Icon=dsl
 Name=My PPP Conf
 Name[ru]=Конфигурация PPP
