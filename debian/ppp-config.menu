@@ -1,0 +1,8 @@
+?package(pppconf-config): \
+	needs="X11" \
+	section="Applications/System/Administration" \
+	hints="sidux,Config" \
+	title="PPP Config" \
+	icon32x32="/usr/share/pixmaps/pppconf-config.xpm" \
+	icon16x16="/usr/share/pixmaps/pppconf-config-16.xpm" \
+	command="su-to-root -c /usr/sbin/pppconf-config"
