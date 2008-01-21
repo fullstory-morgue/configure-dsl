@@ -1,7 +1,7 @@
 [Desktop Entry]
 Encoding=UTF-8
 Type=Application
-Exec=su-to-root -X -c /usr/sbin/configure-pppoeconf
+Exec=su-to-root -X -c /usr/sbin/pppoe-config
 Icon=sidux-pppoe
 Name=My PPPoE Conf
 Name[de]=Konfiguration PPPoE
