@@ -23,7 +23,6 @@ create-icons::
 	
 	mkdir -p icons/pixmaps
 	for f in ppp-config pppoe-config; do \
-		# create XDG compatible icons from SVG
 		for i in 16 22 32 48 64 128; do \
 			mkdir -p "icons/hicolor/$${i}x$${i}/apps" ; \
 			inkscape --export-width=$${i} \
@@ -31,8 +30,6 @@ create-icons::
 				 --export-png="$(CURDIR)/icons/hicolor/$${i}x$${i}/apps/$${f}.png" \
 					$(CURDIR)/icons/$${f}.svg ; \
 		done ; \
-	
-		# create XPM icons for the debian menu system
 		convert icons/hicolor/32x32/apps/$${f}.png icons/pixmaps/$${f}.xpm ; \
 		convert icons/hicolor/16x16/apps/$${f}.png icons/pixmaps/$${f}-16.xpm ; \
 	done
