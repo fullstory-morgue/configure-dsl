@@ -1,3 +1,8 @@
-bin/*		usr/sbin/
-*.desktop	usr/share/applications/sidux/
-icons		usr/share/
+ppp-config			usr/sbin/
+ppp-config.desktop		usr/share/applications/sidux/
+icons/ppp-config.svg		usr/share/icons/hicolor/scalable/apps/
+pppoe-config			usr/sbin/
+pppoe-config.desktop		usr/share/applications/sidux/
+icons/pppoe-config.svg		usr/share/icons/hicolor/scalable/apps/
+icons/hicolor			usr/share/icons/
+icons/pixmaps			usr/share/
