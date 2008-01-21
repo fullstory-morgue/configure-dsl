@@ -1,4 +1,3 @@
 bin/*		usr/sbin/
 *.desktop	usr/share/applications/sidux/
-modprobe.d/*	etc/modprobe.d/
 icons		usr/share/
