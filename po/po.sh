@@ -1,6 +1,6 @@
 #!/bin/bash
 
 {
-bash --dump-po-strings bin/configure-pppconf
+bash --dump-po-strings bin/pppconf-config
 
-} | msguniq > po-pppconf/configure-pppconf.pot
+} | msguniq > po-pppconf/pppconf-config.pot

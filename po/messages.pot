@@ -16,54 +16,54 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: configure-pppconf:16
+#: pppconf-config:16
 msgid "Error: You must be root to run this script!"
 msgstr ""
 
-#: configure-pppconf:52
+#: pppconf-config:52
 msgid "PPP Configuration for Modem"
 msgstr ""
 
-#: configure-pppconf:53
+#: pppconf-config:53
 msgid "Provider"
 msgstr ""
 
-#: configure-pppconf:55
+#: pppconf-config:55
 msgid "Error: bad provider name"
 msgstr ""
 
-#: configure-pppconf:59
+#: pppconf-config:59
 msgid "Number"
 msgstr ""
 
-#: configure-pppconf:61
+#: pppconf-config:61
 msgid "Error: bad number"
 msgstr ""
 
-#: configure-pppconf:65
+#: pppconf-config:65
 msgid "Username"
 msgstr ""
 
-#: configure-pppconf:67
+#: pppconf-config:67
 msgid "Error: bad username"
 msgstr ""
 
-#: configure-pppconf:71
+#: pppconf-config:71
 msgid "Password"
 msgstr ""
 
-#: configure-pppconf:73
+#: pppconf-config:73
 msgid "Error: bad password"
 msgstr ""
 
-#: configure-pppconf:77
+#: pppconf-config:77
 msgid "Device"
 msgstr ""
 
-#: configure-pppconf:79
+#: pppconf-config:79
 msgid "Error: bad device"
 msgstr ""
 
-#: configure-pppconf:148
+#: pppconf-config:148
 msgid "Connect now?"
 msgstr ""

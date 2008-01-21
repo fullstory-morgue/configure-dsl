@@ -18,55 +18,55 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: KBabel 1.11.4\n"
 
-#: configure-pppconf:16
+#: pppconf-config:16
 msgid "ERROR: $0 needs root capabilities, please start it as root\n"
 msgstr "Erro: $0 só o super utilizador (root) pode usar este programa.\n"
 
-#: configure-pppconf:52
+#: pppconf-config:52
 msgid "PPP Configuration for Modem"
 msgstr "Configuração PPP para o modem"
 
-#: configure-pppconf:53
+#: pppconf-config:53
 msgid "Provider"
 msgstr "Operadora"
 
-#: configure-pppconf:55
+#: pppconf-config:55
 msgid "Error: bad provider name"
 msgstr "Erro: operadora desconhecida"
 
-#: configure-pppconf:59
+#: pppconf-config:59
 msgid "Number"
 msgstr "Número"
 
-#: configure-pppconf:61
+#: pppconf-config:61
 msgid "Error: bad number"
 msgstr "Erro: o número entrado não é correcto"
 
-#: configure-pppconf:65
+#: pppconf-config:65
 msgid "Username"
 msgstr "Utente"
 
-#: configure-pppconf:67
+#: pppconf-config:67
 msgid "Error: bad username"
 msgstr "Erro:  nome do utilizador desconhecido ou errado"
 
-#: configure-pppconf:71
+#: pppconf-config:71
 msgid "Password"
 msgstr "Senha"
 
-#: configure-pppconf:73
+#: pppconf-config:73
 msgid "Error: bad password"
 msgstr "Erro: senha errada"
 
-#: configure-pppconf:77
+#: pppconf-config:77
 msgid "Device"
 msgstr "Interface"
 
-#: configure-pppconf:79
+#: pppconf-config:79
 msgid "Error: bad device"
 msgstr "interface errada"
 
-#: configure-pppconf:148
+#: pppconf-config:148
 msgid "Connect now?"
 msgstr "Ligar?"
 
