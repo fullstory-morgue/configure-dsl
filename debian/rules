@@ -1,16 +1,12 @@
 #!/usr/bin/make -f
 
-include /usr/share/cdbs/1/rules/debhelper.mk
+%:
+	dh $@
 
-build/configure-dsl::
-	# Gettext Internationalisation (i18n)
-	DESTDIR=$(CURDIR)/debian/configure-dsl $(CURDIR)/po/make_po.sh my-pppconf.mo
+override_dh_installmodules:
+	dh_installmodules --package=configure-dsl --name=ueagle-atm
 
-install/configure-dsl::
-	# set up module parameter for Eagle ADSL USB modems
-	        dh_installmodules --name=ueagle-atm
-
-create-icons::
+create-icons:
 	# requires inkscape and imagemagick to be installed
 	@if [ ! -x /usr/bin/convert ]; then \
 		echo "ERROR: imagemagick not installed!" ; \
@@ -21,16 +17,16 @@ create-icons::
 		false ; \
 	fi
 	
-	mkdir -p icons/pixmaps
-	for f in ppp-config pppoe-config; do \
-		for i in 16 22 32 48 64 128; do \
-			mkdir -p "icons/hicolor/$${i}x$${i}/apps" ; \
-			inkscape --export-width=$${i} \
-				 --export-height=$${i} \
-				 --export-png="$(CURDIR)/icons/hicolor/$${i}x$${i}/apps/$${f}.png" \
-					$(CURDIR)/icons/$${f}.svg ; \
-		done ; \
-		convert icons/hicolor/32x32/apps/$${f}.png icons/pixmaps/$${f}.xpm ; \
-		convert icons/hicolor/16x16/apps/$${f}.png icons/pixmaps/$${f}-16.xpm ; \
+	# create XDG compatible icons from SVG
+	for i in 16 22 32 48 64 128; do \
+	mkdir -p "icons/hicolor/$${i}x$${i}/apps" ; \
+                inkscape --export-width=$${i} \
+		         --export-height=$${i} \
+		         --export-png="$(CURDIR)/icons/hicolor/$${i}x$${i}/apps/pppoe-config.png" \
+				$(CURDIR)/icons/pppoe-config.svg ; \
 	done
-
+	
+	# create XPM icons for the debian menu system
+	mkdir -p icons/pixmaps
+	convert icons/hicolor/32x32/apps/pppoe-config.png icons/pixmaps/pppoe-config.xpm
+	convert icons/hicolor/16x16/apps/pppoe-config.png icons/pixmaps/pppoe-config-16.xpm

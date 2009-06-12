@@ -1,15 +1,15 @@
 Source: configure-dsl
 Section: misc
-Priority: optional
+Priority: extra
 Maintainer: Stefan Lippers-Hollmann <s.l-h@gmx.de>
-Build-Depends: cdbs, debhelper (>= 6), gettext, imagemagick
-Standards-Version: 3.7.3
+Build-Depends: debhelper (>= 7.2.2)
+Standards-Version: 3.8.1
 Vcs-Svn: svn://svn.berlios.de/fullstory/configure-dsl/trunk
 Vcs-Browser: http://svn.berlios.de/wsvn/fullstory/configure-dsl/trunk/
 
 Package: configure-dsl
 Architecture: all
-Depends: dialog, ssft, ppp, libproc-processtable-perl, libui-dialog-perl, gettext, ppp-scripts
+Depends: ${misc:Depends}, dialog, ppp, libproc-processtable-perl, libui-dialog-perl, gettext
 Recommends: br2684ctl, menu, zenity
 Suggests: kppp
 Description: DSL configuration tools

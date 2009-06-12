@@ -1,8 +1,130 @@
-configure-dsl (0.7.1) UNRELEASED; urgency=low
+configure-dsl (0.8.3) unstable; urgency=low
 
-  * NOT RELEASED YET
+  * remove no longer required dependency on ssft.
+  * bump standards version to 3.8.1, no changes necessary.
+  * change priority to extra.
+  * make use of the new override features of debhelper 7.0.50.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 21 Jan 2008 21:26:33 +0100
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Fri, 12 Jun 2009 23:10:03 +0200
+
+configure-dsl (0.8.2) unstable; urgency=low
+
+  * rebuild against debhelper 7.2.2 and depend on it, to inherit the new 
+    dh_installmodules behaviour of adding a .conf suffix and handling the
+    upgrade from older versions.
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 05 Mar 2009 22:08:53 +0100
+
+configure-dsl (0.8.1) unstable; urgency=low
+
+  * fix desktop-entry-contains-encoding-key.
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Fri, 20 Feb 2009 15:34:45 +0100
+
+configure-dsl (0.8.0) unstable; urgency=low
+
+  * drop gprsconnect/ pppscripts, its functionality is provided by wvdial 
+    (cli) and umtsmon (X11).
+  * drop ppp-config from configure-dsl, its functionality is provided by wvdial
+    and pppconfig.
+  * drop modemlink, its functionality is provided by wvdial and pppconfig.
+  * drop capi-isdnconf, our kernels haven't supported any CAPI capable ISDN
+    driver for the last two years - without anyone complaining.
+  * fix a bunch of lintian issues.
+  * restructure and regenerated icon handling.
+  * fix up remaining issues.
+  * drop gettext and imagemagick from build-depends, they're not longer
+    required.
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 04 Dec 2008 22:06:29 +0100
+
+configure-dsl (0.7.12) unstable; urgency=low
+
+  * no need to test for distributions != Debian.
+  * drop dependency on ppp-scripts for capi-isdnconf, the shipped examples 
+    were GPRS-only.
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 11 Nov 2008 22:25:02 +0100
+
+configure-dsl (0.7.11) unstable; urgency=low
+
+  [ Stefan Lippers-Hollmann ]
+  * modemlink:
+    - manually creating device links below /dev/ doesn't work with udev, 
+      nevertheless grpsconnect still strictly requires it, so we can't ditch 
+      it yet.
+  * appease lintian and write (C) as © in debian/copyright.
+  * switch to the new dh implementation of debhelper 7.
+  * bump standards version to 3.8.0, no changes necessary.
+  * remove obsolete transitional dummy packages.
+
+  [ Joaquim Boura ]
+  * corrected the pt language files. Thanks to Rui Umbelino (VaMPiRiC_CRoW)
+  * new pt languages files. fixed some typos. Thanks to Rui Umbelino
+    (VaMPiRiC_CRoW)
+  * pt translation for the desktop files
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 21 Oct 2008 20:44:08 +0200
+
+configure-dsl (0.7.10) unstable; urgency=low
+
+  * do not try to start any syslog dæmon, there are too many different here to
+    duplicate functionality and it's not a requirement either - just helping
+    to debug potential issues and creates problems on installed systems.
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Fri, 01 Feb 2008 15:05:43 +0100
+
+configure-dsl (0.7.9) unstable; urgency=low
+
+  [ Bernard Gray ]
+  * convert text objects in icons (gprs still may be a prob)
+
+  [ Stefan Lippers-Hollmann ]
+  * refresh PNG graphics.
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 22 Jan 2008 14:18:24 +0100
+
+configure-dsl (0.7.8) unstable; urgency=low
+
+  [ Bernard Gray ]
+  * adjust pppoe.svg to be a different hue to ppp.svg
+
+  [ Stefan Lippers-Hollmann ]
+  * regenerate icons.
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 22 Jan 2008 09:54:09 +0100
+
+configure-dsl (0.7.7) unstable; urgency=low
+
+  * fix icon name for gprsconnect.
+  * rework desktop files.
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 22 Jan 2008 01:28:50 +0100
+
+configure-dsl (0.7.6) unstable; urgency=low
+
+  * remove the conflicts for the time being, the transition should start.
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 22 Jan 2008 01:10:05 +0100
+
+configure-dsl (0.7.5) unstable; urgency=low
+
+  * try to merge configure-gprs, aka gprsconnect.
+  * fix typo.
+  * create menu file like it should be, but somehow reality doesn't match
+    documentation.
+  * hook up capi-isdnconf.
+  * remove debian menu system file for configure-dsl, as long as it is broken
+    anyways.
+  * hook up modemlink.
+  * hook up ppp-scripts.
+  * fix up menu file for modemlink.
+  * fix su-to-root calls.
+  * disable gettext generation for the time being, we need a solution that
+    doesn't break as spectacularly on fuzzy translations.
+  * use versioned conflicts.
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 22 Jan 2008 01:05:57 +0100
 
 configure-dsl (0.7.0) unstable; urgency=low
 
