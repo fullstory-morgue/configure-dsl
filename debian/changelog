@@ -9,8 +9,10 @@ configure-dsl (0.8.4) unstable; urgency=low
 
   [ Stefan Lippers-Hollmann ]
   * generate binary artwork.
+  * bump standards version to 3.8.2, no changes necessary.
+  * wrap control entries.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 02 Jul 2009 23:03:25 +0200
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 02 Jul 2009 23:04:17 +0200
 
 configure-dsl (0.8.3) unstable; urgency=low
 
