@@ -1,7 +1,4 @@
-configure-dsl (0.8.4) UNRELEASED; urgency=low
-
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
+configure-dsl (0.8.4) unstable; urgency=low
 
   [ Bernard Gray ]
   * update art for 2009-02
@@ -10,7 +7,10 @@ configure-dsl (0.8.4) UNRELEASED; urgency=low
   * vacuum defs on icon svg 
   * ready for release
 
- -- Bernard Gray <bernard.gray@gmail.com>  Thu, 02 Jul 2009 21:46:23 +1000
+  [ Stefan Lippers-Hollmann ]
+  * generate binary artwork.
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 02 Jul 2009 23:03:25 +0200
 
 configure-dsl (0.8.3) unstable; urgency=low
 
