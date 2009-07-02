@@ -24,13 +24,7 @@
    sodipodi:docname="pppoe-config.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape"
    style="overflow:visible"><defs
-   id="defs1242"><inkscape:perspective
-     sodipodi:type="inkscape:persp3d"
-     inkscape:vp_x="0 : 64 : 1"
-     inkscape:vp_y="0 : 1000 : 0"
-     inkscape:vp_z="128 : 64 : 1"
-     inkscape:persp3d-origin="64 : 42.666667 : 1"
-     id="perspective387" /><pattern
+   id="defs1242"><pattern
      inkscape:collect="always"
      xlink:href="#Strips1_1white"
      id="pattern33304"
@@ -827,13 +821,7 @@
      x1="48.660824"
      y1="76.028748"
      x2="48.660824"
-     y2="90.525002" /><inkscape:perspective
-     id="perspective3313"
-     inkscape:persp3d-origin="457.14285 : 143.80952 : 1"
-     inkscape:vp_z="914.28571 : 215.71428 : 1"
-     inkscape:vp_y="0 : 1000 : 0"
-     inkscape:vp_x="0 : 215.71428 : 1"
-     sodipodi:type="inkscape:persp3d" /></defs><sodipodi:namedview
+     y2="90.525002" /></defs><sodipodi:namedview
    inkscape:window-height="842"
    inkscape:window-width="1440"
    inkscape:pageshadow="2"
@@ -848,7 +836,7 @@
    height="128px"
    width="128px"
    inkscape:showpageshadow="false"
-   inkscape:zoom="4"
+   inkscape:zoom="2"
    inkscape:cx="36.979102"
    inkscape:cy="82.820968"
    inkscape:window-x="-5"
@@ -1826,6 +1814,7 @@
      y="-470.55014"
      style="font-size:149.45349121px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;letter-spacing:-1.25917947;writing-mode:lr-tb;text-anchor:start;stroke-width:3.67260718;font-family:Dustismo;-inkscape-font-specification:Dustismo"
      dx="0 0 8.9037437">sidux</tspan></text>
+
 
 
 

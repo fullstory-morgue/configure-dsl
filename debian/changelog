@@ -6,9 +6,10 @@ configure-dsl (0.8.4) UNRELEASED; urgency=low
   [ Bernard Gray ]
   * update art for 2009-02
   * convert all bitmaps to new svg art
-  * update copyright for new art -- do not release
+  * update copyright for new art
+  * vacuum defs on icon svg -- do not release
 
- -- Bernard Gray <bernard.gray@gmail.com>  Thu, 02 Jul 2009 19:52:08 +1000
+ -- Bernard Gray <bernard.gray@gmail.com>  Thu, 02 Jul 2009 20:24:58 +1000
 
 configure-dsl (0.8.3) unstable; urgency=low
 
