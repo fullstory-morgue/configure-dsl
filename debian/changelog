@@ -1,8 +1,12 @@
 configure-dsl (0.8.4) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Fri, 12 Jun 2009 23:12:16 +0200
+  [ Bernard Gray ]
+  * update art for 2009-02 -- do not release
+
+ -- Bernard Gray <bernard.gray@gmail.com>  Thu, 02 Jul 2009 19:19:59 +1000
 
 configure-dsl (0.8.3) unstable; urgency=low
 
