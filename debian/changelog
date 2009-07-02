@@ -1,3 +1,9 @@
+configure-dsl (0.8.5) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 02 Jul 2009 23:05:12 +0200
+
 configure-dsl (0.8.4) unstable; urgency=low
 
   [ Bernard Gray ]
