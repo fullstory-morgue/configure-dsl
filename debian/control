@@ -3,7 +3,7 @@ Section: misc
 Priority: extra
 Maintainer: Stefan Lippers-Hollmann <s.l-h@gmx.de>
 Build-Depends: debhelper (>= 7.2.2)
-Standards-Version: 3.8.4
+Standards-Version: 3.9.0
 Vcs-Svn: svn://svn.berlios.de/fullstory/configure-dsl/trunk
 Vcs-Browser: http://svn.berlios.de/wsvn/fullstory/configure-dsl/trunk/
 

@@ -2,8 +2,9 @@ configure-dsl (0.8.6) UNRELEASED; urgency=low
 
   * NOT RELEASED YET
   * regenerate icons.
+  * bump standards version to 3.9.0, no changes necessary.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 22 Jul 2010 01:30:59 +0200
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 22 Jul 2010 01:31:44 +0200
 
 configure-dsl (0.8.5) unstable; urgency=low
 
