@@ -1,7 +1,7 @@
 /* XPM */
 static char *pppoe_config[] = {
 /* columns rows colors chars-per-pixel */
-"32 32 210 2",
+"32 32 210 2 ",
 "   c #1E1E1E",
 ".  c #2D211E",
 "X  c #2C2522",
