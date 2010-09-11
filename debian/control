@@ -2,7 +2,7 @@ Source: configure-dsl
 Section: misc
 Priority: extra
 Maintainer: Stefan Lippers-Hollmann <s.l-h@gmx.de>
-Build-Depends: debhelper (>= 7.2.2)
+Build-Depends: debhelper (>= 7.9.3)
 Standards-Version: 3.9.1
 Vcs-Svn: svn://svn.berlios.de/fullstory/configure-dsl/trunk
 Vcs-Browser: http://svn.berlios.de/wsvn/fullstory/configure-dsl/trunk/

@@ -1,8 +1,8 @@
-configure-dsl (0.8.8) UNRELEASED; urgency=low
+configure-dsl (0.8.8) unstable; urgency=low
 
-  * NOT RELEASED YET
+  * switch to compat level 8.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 03 Aug 2010 16:02:21 +0200
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sun, 08 Aug 2010 03:33:19 +0200
 
 configure-dsl (0.8.7) unstable; urgency=low
 
