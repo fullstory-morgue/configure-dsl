@@ -1,10 +1,10 @@
-configure-dsl (0.8.6) UNRELEASED; urgency=low
+configure-dsl (0.8.6) unstable; urgency=low
 
-  * NOT RELEASED YET
   * regenerate icons.
   * bump standards version to 3.9.0, no changes necessary.
+  * elaborate long description, to make lintian happy.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 22 Jul 2010 01:31:44 +0200
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 22 Jul 2010 01:35:38 +0200
 
 configure-dsl (0.8.5) unstable; urgency=low
 
