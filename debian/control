@@ -16,7 +16,6 @@ Depends: ${misc:Depends},
  libui-dialog-perl,
  gettext
 Recommends: br2684ctl,
- menu,
  zenity
 Suggests: kppp
 Description: DSL configuration tools
