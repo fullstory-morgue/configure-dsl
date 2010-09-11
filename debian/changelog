@@ -1,8 +1,8 @@
-configure-dsl (0.8.10) UNRELEASED; urgency=low
+configure-dsl (0.8.10) unstable; urgency=low
 
-  * NOT RELEASED YET
+  * re-add menu as Recommends, we use su-to-root.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat, 21 Aug 2010 23:32:03 +0200
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat, 21 Aug 2010 23:38:58 +0200
 
 configure-dsl (0.8.9) unstable; urgency=low
 
