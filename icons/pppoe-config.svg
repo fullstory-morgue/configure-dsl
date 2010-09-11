@@ -20,7 +20,7 @@
    enable-background="new 0 0 264 115.05"
    xml:space="preserve"
    sodipodi:version="0.32"
-   inkscape:version="0.46+devel"
+   inkscape:version="0.47 r22583"
    sodipodi:docname="pppoe-config.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape"
    style="overflow:visible"><defs
@@ -839,13 +839,14 @@
    inkscape:zoom="2"
    inkscape:cx="36.979102"
    inkscape:cy="82.820968"
-   inkscape:window-x="-5"
-   inkscape:window-y="-3"
+   inkscape:window-x="0"
+   inkscape:window-y="0"
    inkscape:current-layer="Livello_1"
    showguides="true"
    inkscape:guide-bbox="true"
    showgrid="true"
-   inkscape:snap-global="false"><inkscape:grid
+   inkscape:snap-global="false"
+   inkscape:window-maximized="0"><inkscape:grid
      type="xygrid"
      id="grid31904"
      empspacing="4"
@@ -1813,7 +1814,8 @@
      x="-272.01215"
      y="-470.55014"
      style="font-size:149.45349121px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;letter-spacing:-1.25917947;writing-mode:lr-tb;text-anchor:start;stroke-width:3.67260718;font-family:Dustismo;-inkscape-font-specification:Dustismo"
-     dx="0 0 8.9037437">sidux</tspan></text>
+     dx="0 0 8.9037437">aptosid</tspan></text>
+
 
 
 

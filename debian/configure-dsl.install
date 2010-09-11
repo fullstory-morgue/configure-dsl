@@ -1,0 +1,5 @@
+pppoe-config		usr/sbin/
+pppoe-config.desktop	usr/share/applications/aptosid/
+icons/pppoe-config.svg	usr/share/icons/hicolor/scalable/apps/
+icons/hicolor		usr/share/icons/
+icons/pixmaps		usr/share/

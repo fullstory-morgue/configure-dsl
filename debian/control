@@ -21,6 +21,6 @@ Recommends: br2684ctl,
 Suggests: kppp
 Description: DSL configuration tools
  These scripts can be used to configure various different xDSL connection types
- and modems for sidux.
+ and modems for aptosid.
  .
  At the moment only PPPoE connections are supported.

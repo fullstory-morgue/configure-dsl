@@ -1,0 +1,8 @@
+?package(configure-dsl): \
+	needs="X11" \
+	section="Applications/System/Administration" \
+	hints="aptosid,Config" \
+	title="PPPoE Config" \
+	icon32x32="/usr/share/pixmaps/pppoe-config.xpm" \
+	icon16x16="/usr/share/pixmaps/pppoe-config-16.xpm" \
+	command="su-to-root -c /usr/sbin/pppoe-config"
