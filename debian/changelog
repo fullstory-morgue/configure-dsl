@@ -2,6 +2,7 @@ configure-dsl (0.8.11) UNRELEASED; urgency=low
 
   * NOT RELEASED YET
   * ORPHAN PACKAGE
+  * refresh SVG graphics, shut up inkscape's migration from old versions.
 
  -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat, 28 Aug 2010 01:59:09 +0200
 
